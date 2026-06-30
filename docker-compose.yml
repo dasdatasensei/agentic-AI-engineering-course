@@ -1,0 +1,21 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  redis_data:
+
+# Note: this is the course-scope compose file — Redis is the only service
+# that needs to run locally. Everything else (LLM, embeddings, web search,
+# tracing) is a free-tier hosted API reached over HTTPS with the keys in
+# .env. The production-grade docker-compose.prod.yml (with a Postgres-backed
+# MLflow, additional workers, etc.) is documented in docs/production.md.

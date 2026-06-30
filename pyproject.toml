@@ -1,0 +1,63 @@
+[project]
+name = "era-platform"
+version = "0.1.0"
+description = "Enterprise Research & Analysis Platform — a five-agent multi-agent AI system, built incrementally across the Agentic AI Engineering course."
+authors = [
+    { name = "Dr. Jody-Ann S. Jones", email = "jody@drjodyannjones.com" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+dependencies = [
+    "langgraph>=0.2",
+    "langchain>=0.3",
+    "langchain-google-genai",
+    "langchain-groq",
+    "langchain-community",
+    "llama-index",
+    "chromadb",
+    "sentence-transformers",
+    "tavily-python",
+    "duckduckgo-search",
+    "fastapi>=0.111",
+    "uvicorn[standard]",
+    "pydantic>=2.0",
+    "langsmith",
+    "mlflow",
+    "redis",
+    "python-dotenv",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["era_platform*"]
