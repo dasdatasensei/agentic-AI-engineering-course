@@ -16,6 +16,7 @@ dependencies = [
     "langchain-groq",
     "langchain-community",
     "llama-index",
+    "llama-index-embeddings-google-genai",
     "chromadb",
     "sentence-transformers",
     "tavily-python",

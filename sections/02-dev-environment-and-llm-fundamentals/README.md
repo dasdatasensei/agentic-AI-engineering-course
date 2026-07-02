@@ -19,9 +19,16 @@ Gets your machine ready: Python 3.12, a virtual environment, and your four free-
 ```
 02-dev-environment-and-llm-fundamentals/
 ├── README.md
-├── exercise.py          # your first LLM call, with logging and error handling
-└── solution.py
+└── exercise-2E-research-summariser/     # Exercise 2.E (per-exercise pilot pattern)
+    ├── README.md                        # objective, acceptance criteria, lecture links
+    ├── starter/summariser.py            # stubbed TODOs — the learner edits this
+    └── solution/summariser.py           # runnable demo driving the packaged reference
 ```
+
+The reusable logic lives in the installed package at
+[`era_platform/generation/summarizer.py`](../../era_platform/generation/summarizer.py)
+(type-checked + unit-tested), driven by the `solution/` script — the pilot
+pattern later exercises follow.
 
 ## Setup checklist
 
