@@ -29,6 +29,7 @@ dependencies = [
     "redis",
     "python-dotenv",
     "httpx",
+    "tenacity",
 ]
 
 [project.optional-dependencies]
