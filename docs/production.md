@@ -246,7 +246,7 @@ All services below are free tier or open source with no credit card required. De
 | Reranking | Cross-encoder (HuggingFace) | Free — `cross-encoder/ms-marco-MiniLM-L-6-v2` | Replaces Cohere Rerank; runs locally via `sentence-transformers` |
 | Web Search (primary) | [Tavily](https://app.tavily.com) | Free — 1,000 credits/month | No API key change needed vs production |
 | Web Search (fallback) | [DuckDuckGo](https://pypi.org/project/duckduckgo-search/) | Free — no key, no limit | `from langchain_community.tools import DuckDuckGoSearchRun`; zero signup |
-| Code execution | Python subprocess + RestrictedPython | Free — stdlib | Replaces E2B sandbox; AST check before exec; sufficient for course demo |
+| Code execution | Python `subprocess` + stdlib `ast` safety check | Free — stdlib | Replaces E2B sandbox; static AST blocklist before exec, then a locked-down subprocess with a timeout (`era_platform/agents/tools/code_execution.py`, Exercise 4.E); a teaching sandbox, not real isolation |
 | Task queue | `asyncio` (stdlib) | Free — no deps | Replaces Celery; agents dispatched via `asyncio.gather` in FastAPI background tasks |
 
 #### Data & Storage

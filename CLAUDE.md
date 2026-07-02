@@ -369,16 +369,20 @@ agentic-AI-engineering-course/
 │   ├── __init__.py
 │   ├── agents/
 │   │   ├── __init__.py
-│   │   └── base.py                   # BaseAgent ABC (async), AgentError — Section 4 contract
+│   │   ├── base.py                   # BaseAgent ABC (async), AgentError — Section 4 contract
+│   │   ├── research_agent.py         # ResearchAgent(BaseAgent) — ReAct loop, Exercise 4.E
+│   │   └── tools/                    # Tool ABC + @tool + web_search/code_execution/knowledge_search — 4.E
 │   ├── generation/
 │   │   ├── __init__.py
 │   │   └── summarizer.py             # SummarizerAgent + ResearchSummary — Exercise 2.E
+│   ├── rag/                          # RAG core — Section 3 (embeddings, store, ingestion,
+│   │   ├── __init__.py               #   retrieval, qa, bm25, knowledge_agent). 3.E + 3.P.
+│   │   └── …
 │   ├── state/
 │   │   ├── __init__.py
 │   │   └── schema.py                 # ResearchState / Evidence (versioned) — Section 5
 │   ├── api/__init__.py               # scaffold (Section 8)
 │   ├── evaluation/__init__.py        # scaffold (Section 9)
-│   ├── rag/__init__.py               # scaffold (Section 3+)
 │   └── security/__init__.py          # scaffold (Section 10)
 │
 ├── sections/                         # KEBAB-case, numbered to match docs/curriculum.md
@@ -389,8 +393,8 @@ agentic-AI-engineering-course/
 │   │       ├── README.md             # objective, acceptance criteria, lecture links
 │   │       ├── starter/summariser.py # stubbed TODOs — the learner edits this
 │   │       └── solution/summariser.py# runnable demo driving the packaged reference
-│   ├── 03-rag-fundamentals/          # older flat pattern: exercise.py + solution.py
-│   ├── 04-single-agents-tools-memory-react/             # exercise.py + solution.py
+│   ├── 03-rag-fundamentals/          # 2.E pattern: exercise-3E-document-qa/ + project-3P-…/ (starter+solution)
+│   ├── 04-single-agents-tools-memory-react/             # 2.E pattern: exercise-4E-research-agent/ (starter+solution)
 │   ├── 05-langgraph-stateful-agents/                    # exercise.py + solution.py
 │   ├── 06-multi-agent-systems/                          # exercise.py + solution.py
 │   ├── 07-advanced-rag/              # README only
@@ -403,7 +407,9 @@ agentic-AI-engineering-course/
 ├── tests/
 │   ├── unit/                         # No external I/O; imports from era_platform
 │   │   ├── test_state_schema.py
-│   │   └── test_research_summariser.py
+│   │   ├── test_research_summariser.py
+│   │   ├── test_knowledge_retrieval.py   # Section 3 RAG core (3.E + 3.P)
+│   │   └── test_research_agent.py        # Section 4 ReAct agent + tools (4.E)
 │   └── integration/                  # External APIs mocked (no real keys in CI)
 │
 ├── docs/
@@ -420,12 +426,13 @@ agentic-AI-engineering-course/
 └── CLAUDE.md                         # This file
 ```
 
-**Two exercise patterns coexist.** Sections 03–08 use a flat
-`exercise.py`/`solution.py` pair. **Exercise 2.E introduced the pilot pattern**
+**Two exercise patterns coexist.** **Exercise 2.E introduced the pilot pattern**
 for new exercises: a per-exercise folder (`README.md` + `starter/` + `solution/`),
 with the reusable logic packaged in `era_platform/` (type-checked + unit-tested)
-and tests in repo-root `tests/unit/`. New exercises follow 2.E; older ones may be
-retrofitted over time.
+and tests in repo-root `tests/unit/`. Sections 02, 03, and 04 now follow it
+(2.E, 3.E + 3.P, 4.E). The remaining older sections (05, 06, 08) still use a flat
+`exercise.py`/`solution.py` pair and may be retrofitted over time; new exercises
+follow 2.E.
 
 ### Reconciliation notes (2.E pilot — read before "fixing" apparent gaps)
 
