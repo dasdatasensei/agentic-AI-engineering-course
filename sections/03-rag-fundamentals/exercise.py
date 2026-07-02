@@ -62,7 +62,9 @@ if __name__ == "__main__":
     # Minimal sanity check — replace with your own document directory.
     sample_dir = Path(__file__).parent / "sample_docs"
     if not sample_dir.exists():
-        logger.warning("No sample_docs/ directory found — create one with a few .txt files to test.")
+        logger.warning(
+            "No sample_docs/ directory found — create one with a few .txt files to test."
+        )
     else:
         docs = load_documents(sample_dir)
         chunks = chunk_documents(docs)

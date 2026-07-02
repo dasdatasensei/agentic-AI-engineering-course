@@ -17,9 +17,7 @@ def test_research_state_defaults() -> None:
 
 def test_evidence_accumulates_without_overwriting() -> None:
     state = ResearchState(run_id="run-2", brief="test")
-    state.evidence.append(
-        Evidence(source_id="src-1", source_type="web", content="finding one")
-    )
+    state.evidence.append(Evidence(source_id="src-1", source_type="web", content="finding one"))
     state.evidence.append(
         Evidence(source_id="src-2", source_type="document", content="finding two")
     )
