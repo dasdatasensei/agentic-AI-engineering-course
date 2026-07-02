@@ -1,29 +1,12 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.12"/>
-<img src="https://img.shields.io/badge/LangGraph-0.2-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangGraph"/>
-<img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
-<img src="https://img.shields.io/badge/Cost_to_run-%240-22c55e?style=for-the-badge" alt="$0 to run"/>
-<img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge" alt="MIT License"/>
-
-<br/><br/>
-
-# Agentic AI Engineering
-### Build & Deploy Multi-Agent Systems — Companion Repository
-
-**The official companion repo for the Udemy course. Twelve sections, five projects, one production-grade multi-agent system — built incrementally, entirely on a zero-cost stack.**
-
-[Course on Udemy](#) · [Start Here](#-start-here) · [Curriculum Map](#-curriculum-map) · [Projects](#-the-five-projects) · [Quick Start](#-quick-start) · [Production Path](#-from-course-project-to-production)
-
-</div>
-
 ---
 
 ## What is this repository?
 
 This repo is where you build the **ERA Platform** (Enterprise Research & Analysis Platform) — a five-agent AI system that takes a research brief and autonomously searches the web, retrieves from a document knowledge base, runs quantitative analysis, and synthesizes a cited, structured report, gated by a human review checkpoint.
 
-You don't clone a finished system and read about it. You build it, section by section, lecture by lecture, on a stack that costs **$0/month** and requires **no credit card**. By the end of Section 12, the code in this repo *is* a deployed, observable, portfolio-ready multi-agent system — not a toy example.
+You don't clone a finished system and read about it. You build it, section by section, lecture by lecture, on a stack that costs **$0/month** and requires **no credit card**. By the end of Section 12, the code in this repo _is_ a deployed, observable, portfolio-ready multi-agent system — not a toy example.
 
 If you're enrolled in the course, this repo is your primary workspace. Fork it, work through the sections in order (or follow the fast-track path — see below), and compare your code against the `solution/` branch for each section whenever you get stuck.
 
@@ -45,12 +28,12 @@ If you're enrolled in the course, this repo is your primary workspace. Fork it, 
 
 The course runs across **four phases, twelve sections, ~143 lectures** (~25 hours full path / ~4 hours fast-track). Every section folder in this repo mirrors a course section exactly.
 
-| Phase | Sections | What you build | Folder |
-|---|---|---|---|
-| 🔵 Foundations | 1–3 | Your dev environment, first LLM calls, a working RAG pipeline | `sections/01-*` → `sections/03-*` |
-| 🟢 Building Agents | 4–7 | A tool-using ReAct agent → a LangGraph StateGraph → a 3-agent team → advanced RAG | `sections/04-*` → `sections/07-*` |
-| 🟠 Production | 8–10 | A streaming FastAPI service, full observability, agent security | `sections/08-*` → `sections/10-*` |
-| 🔴 Deployment & Capstone | 11–12 | Containerized, CI/CD'd, deployed to the open internet | `sections/11-*` → `sections/12-*` |
+| Phase                    | Sections | What you build                                                                    | Folder                            |
+| ------------------------ | -------- | --------------------------------------------------------------------------------- | --------------------------------- |
+| 🔵 Foundations           | 1–3      | Your dev environment, first LLM calls, a working RAG pipeline                     | `sections/01-*` → `sections/03-*` |
+| 🟢 Building Agents       | 4–7      | A tool-using ReAct agent → a LangGraph StateGraph → a 3-agent team → advanced RAG | `sections/04-*` → `sections/07-*` |
+| 🟠 Production            | 8–10     | A streaming FastAPI service, full observability, agent security                   | `sections/08-*` → `sections/10-*` |
+| 🔴 Deployment & Capstone | 11–12    | Containerized, CI/CD'd, deployed to the open internet                             | `sections/11-*` → `sections/12-*` |
 
 Full lecture-by-lecture breakdown, research citations, and the fast-track lecture list live in [`docs/curriculum.md`](docs/curriculum.md).
 
@@ -60,13 +43,13 @@ Full lecture-by-lecture breakdown, research citations, and the fast-track lectur
 
 Every project builds directly on the one before it. There is no throwaway code — what you build in Section 3 is still running, unmodified in spirit, inside the capstone in Section 12.
 
-| # | Project | Lands in | What it adds | Becomes part of |
-|---|---|---|---|---|
-| 1 | **Personal Knowledge Assistant** | Section 3 | RAG over your own documents — ChromaDB + LlamaIndex + Gemini Embeddings | `era_platform/rag/` |
-| 2 | **Autonomous Research Assistant** | Section 5 | Project 1 wrapped in a LangGraph `StateGraph` — conditional routing, checkpointing, a human-in-the-loop gate | `era_platform/agents/orchestrator.py` |
-| 3 | **Three-Agent Team** | Section 6 | A supervisor agent coordinating a web intelligence agent, a knowledge retrieval agent, and a synthesis agent in parallel | `era_platform/agents/*` |
-| 4 | **REST API** | Section 8 | Project 3 exposed via FastAPI — SSE streaming, JWT auth, OpenAPI 3.1 | `era_platform/api/` |
-| 5 | **Capstone — Full ERA Platform** | Section 12 | All five agents assembled, containerized, deployed to Railway, traced end-to-end in LangSmith | The entire `era_platform/` package |
+| #   | Project                           | Lands in   | What it adds                                                                                                             | Becomes part of                       |
+| --- | --------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| 1   | **Personal Knowledge Assistant**  | Section 3  | RAG over your own documents — ChromaDB + LlamaIndex + Gemini Embeddings                                                  | `era_platform/rag/`                   |
+| 2   | **Autonomous Research Assistant** | Section 5  | Project 1 wrapped in a LangGraph`StateGraph` — conditional routing, checkpointing, a human-in-the-loop gate              | `era_platform/agents/orchestrator.py` |
+| 3   | **Three-Agent Team**              | Section 6  | A supervisor agent coordinating a web intelligence agent, a knowledge retrieval agent, and a synthesis agent in parallel | `era_platform/agents/*`               |
+| 4   | **REST API**                      | Section 8  | Project 3 exposed via FastAPI — SSE streaming, JWT auth, OpenAPI 3.1                                                     | `era_platform/api/`                   |
+| 5   | **Capstone — Full ERA Platform**  | Section 12 | All five agents assembled, containerized, deployed to Railway, traced end-to-end in LangSmith                            | The entire`era_platform/` package     |
 
 This incremental structure is deliberate: it's how production AI systems actually get built, and it's the single biggest thing tutorial-style courses skip.
 
@@ -120,14 +103,14 @@ Get the full pipeline running locally in under 15 minutes. No AWS account, no An
 
 ### Prerequisites
 
-| Requirement | Notes |
-|---|---|
-| Python ≥ 3.12 | `pyenv` or system install |
-| Docker + Docker Compose ≥ 24.0 | Only used for local Redis |
+| Requirement                                         | Notes                                   |
+| --------------------------------------------------- | --------------------------------------- |
+| Python ≥ 3.12                                       | `pyenv` or system install               |
+| Docker + Docker Compose ≥ 24.0                      | Only used for local Redis               |
 | [Google AI Studio key](https://aistudio.google.com) | Free — covers Gemini Flash + embeddings |
-| [Groq API key](https://console.groq.com) | Free — covers routing/classification |
-| [Tavily API key](https://app.tavily.com) | Free — 1,000 credits/month |
-| [LangSmith API key](https://smith.langchain.com) | Free — 5,000 traces/month |
+| [Groq API key](https://console.groq.com)            | Free — covers routing/classification    |
+| [Tavily API key](https://app.tavily.com)            | Free — 1,000 credits/month              |
+| [LangSmith API key](https://smith.langchain.com)    | Free — 5,000 traces/month               |
 
 ### Setup
 
@@ -162,7 +145,7 @@ Full per-section setup notes (additional keys needed as you progress, e.g. for S
 
 ## 🛤️ Two Ways to Take This Course
 
-- **Full path (~25 hours):** every lecture, every exercise, all 5 projects. For engineers who want deep understanding of *why*, not just *how*.
+- **Full path (~25 hours):** every lecture, every exercise, all 5 projects. For engineers who want deep understanding of _why_, not just _how_.
 - **Fast-track (~4 hours):** a curated subset of lectures that still includes all 5 projects. See [`docs/curriculum.md`](docs/curriculum.md) for the exact lecture list.
 
 Both paths produce the same final capstone system.
@@ -203,9 +186,3 @@ MIT License. Copyright (c) 2026 Dr. Jody-Ann S. Jones / The Data Sensei. See [`L
 ---
 
 <div align="center">
-
-Created by **[Dr. Jody-Ann S. Jones](https://www.drjodyannjones.com)** · [The Data Sensei](https://www.drjodyannjones.com) · [GitHub](https://github.com/dasdatasensei) · [YouTube](https://www.youtube.com/@TheDataSensei)
-
-*PhD · AWS Certified Machine Learning – Specialty*
-
-</div>
