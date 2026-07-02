@@ -61,5 +61,8 @@ async def dispatch_specialists(state: ResearchState, agents: list[BaseAgent]) ->
 
 if __name__ == "__main__":
     state = ResearchState(run_id="test-run", brief="Three-agent team smoke test")
-    agents: list[BaseAgent] = [WebIntelligenceAgent("web_intel"), RAGRetrievalAgent("rag_retrieval")]
+    agents: list[BaseAgent] = [
+        WebIntelligenceAgent("web_intel"),
+        RAGRetrievalAgent("rag_retrieval"),
+    ]
     asyncio.run(dispatch_specialists(state, agents))

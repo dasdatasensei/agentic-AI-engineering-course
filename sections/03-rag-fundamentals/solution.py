@@ -76,7 +76,9 @@ def chunk_documents(documents: list[str], chunk_size: int = 512, overlap: int = 
     return chunks
 
 
-def build_index(chunks: list[str], persist_dir: str = "./chroma_db", collection_name: str = "knowledge_base") -> None:
+def build_index(
+    chunks: list[str], persist_dir: str = "./chroma_db", collection_name: str = "knowledge_base"
+) -> None:
     """Embed each chunk and store in a persistent ChromaDB collection.
 
     Uses ChromaDB's `DefaultEmbeddingFunction`, which downloads a small
@@ -104,7 +106,9 @@ def build_index(chunks: list[str], persist_dir: str = "./chroma_db", collection_
     ids = [f"chunk-{i}" for i in range(len(chunks))]
     collection.add(documents=chunks, ids=ids)
 
-    logger.info("Indexed %d chunks into collection '%s' at %s", len(chunks), collection_name, persist_dir)
+    logger.info(
+        "Indexed %d chunks into collection '%s' at %s", len(chunks), collection_name, persist_dir
+    )
 
 
 def query(

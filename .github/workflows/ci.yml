@@ -28,7 +28,11 @@ jobs:
           ruff check .
 
       - name: Type check (mypy)
-        run: mypy . --strict
+        # Scoped to the installed package + tests. The standalone teaching
+        # scripts under sections/ intentionally reuse filenames (exercise.py,
+        # solution.py, summariser.py), which mypy rejects as duplicate modules;
+        # they are still linted by ruff below.
+        run: mypy era_platform tests --strict
 
       - name: Unit tests
         run: pytest tests/unit/ -v
