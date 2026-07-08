@@ -13,7 +13,7 @@
 
 **A five-agent multi-agent system that turns a research brief into a cited, structured report — searching the web, retrieving from a document knowledge base, running quantitative analysis, and gating the result behind a human review checkpoint.** Built on a stack that costs **$0/month**.
 
-[What is this?](#what-is-this-repository) · [Architecture](#️-architecture) · [Quick Start](#-quick-start) · [Curriculum](#-curriculum-map) · [About the Instructor](#-about-the-instructor)
+[What is this?](#what-is-this-repository) · [Architecture](#️-architecture) · [Quick Start](#-quick-start) · [Curriculum](#️-curriculum-map) · [About the Instructor](#‍-about-the-instructor)
 
 </div>
 
@@ -24,13 +24,13 @@
 - [What is this repository?](#what-is-this-repository)
 - [🚀 Start Here](#-start-here)
 - [🏗️ Architecture](#️-architecture)
-- [🗺️ Curriculum Map](#-curriculum-map)
+- [🗺️ Curriculum Map](#️-curriculum-map)
 - [🏆 The Five Projects](#-the-five-projects)
 - [📁 Repository Structure](#-repository-structure)
 - [⚡ Quick Start](#-quick-start)
 - [🛤️ Two Ways to Take This Course](#-two-ways-to-take-this-course)
-- [🏗️ From Course Project to Production](#-from-course-project-to-production)
-- [👩🏽‍🏫 About the Instructor](#-about-the-instructor)
+- [🏗️ From Course Project to Production](#️-from-course-project-to-production)
+- [👩🏽‍🏫 About the Instructor](#‍-about-the-instructor)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 
