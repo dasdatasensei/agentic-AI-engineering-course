@@ -9,7 +9,7 @@
 
 # Enterprise Research & Analysis Platform (ERA)
 
-### The companion repo for the *Agentic AI Engineering* course — built section by section, lecture by lecture
+## The companion repo for the *Agentic AI Engineering* course — built section by section, lecture by lecture
 
 **A five-agent multi-agent system that turns a research brief into a cited, structured report — searching the web, retrieving from a document knowledge base, running quantitative analysis, and gating the result behind a human review checkpoint.** Built on a stack that costs **$0/month**.
 
