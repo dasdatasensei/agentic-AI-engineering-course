@@ -28,7 +28,7 @@
 - [🏆 The Five Projects](#-the-five-projects)
 - [📁 Repository Structure](#-repository-structure)
 - [⚡ Quick Start](#-quick-start)
-- [🛤️ Two Ways to Take This Course](#-two-ways-to-take-this-course)
+- [🛤️ Two Ways to Take This Course](#️-two-ways-to-take-this-course)
 - [🏗️ From Course Project to Production](#️-from-course-project-to-production)
 - [👩🏽‍🏫 About the Instructor](#‍-about-the-instructor)
 - [🤝 Contributing](#-contributing)
