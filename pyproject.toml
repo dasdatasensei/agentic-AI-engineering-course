@@ -37,6 +37,7 @@ dev = [
     "pytest>=8.0",
     "pytest-asyncio",
     "pytest-cov",
+    "pre-commit",
     "ruff",
     "mypy",
 ]

@@ -20,7 +20,12 @@ git clone https://github.com/<your-username>/agentic-AI-engineering-course.git
 cd agentic-AI-engineering-course
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
+pre-commit install
 ```
+
+`pre-commit install` is a one-time step per clone — it wires up the `gitleaks`
+secret scan defined in `.pre-commit-config.yaml` so a commit containing
+anything key-shaped is blocked before it reaches git history.
 
 Before opening a PR, all of these must pass:
 
