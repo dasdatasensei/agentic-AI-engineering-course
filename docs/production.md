@@ -828,7 +828,7 @@ class Settings(BaseSettings):
     synthesis_max_output_tokens: int = 12_000
 
     # Cost guard
-    max_cost_per_report_usd: float = 15.0   # Circuit breaker
+    max_cost_per_report_usd: float = 15.0  # Circuit breaker
 ```
 
 ---
