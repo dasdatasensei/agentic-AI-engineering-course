@@ -189,12 +189,11 @@ Full type hints on every function signature. No bare `dict`, `list`, or
 
 ```python
 # WRONG
-def extract_entities(text: str) -> dict:
-    ...
+def extract_entities(text: str) -> dict: ...
+
 
 # RIGHT
-def extract_entities(text: str) -> list[ExtractedEntity]:
-    ...
+def extract_entities(text: str) -> list[ExtractedEntity]: ...
 ```
 
 ### 2. Logging

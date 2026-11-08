@@ -38,7 +38,7 @@ dev = [
     "pytest-asyncio",
     "pytest-cov",
     "pre-commit",
-    "ruff",
+    "ruff==0.17.4",  # pinned: CI and local must format identically (0.17.2+ formats Markdown code blocks)
     "mypy",
 ]
 

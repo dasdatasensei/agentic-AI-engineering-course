@@ -157,12 +157,12 @@ This diagram details the internal structure of each agent and the orchestrator's
 **`ResearchState` (Pydantic) — fields owned by the orchestrator:**
 
 ```python
-brief_parsed, task_plan            # from parse_brief
-web_results, source_graph          # from web_intelligence
-rag_evidence, doc_refs             # from rag_retrieval
-quant_analysis                     # from quant_analysis
-hitl_status, final_report          # from the HITL gate / finalize_report
-trace_ids                          # observability, written by every node
+brief_parsed, task_plan  # from parse_brief
+web_results, source_graph  # from web_intelligence
+rag_evidence, doc_refs  # from rag_retrieval
+quant_analysis  # from quant_analysis
+hitl_status, final_report  # from the HITL gate / finalize_report
+trace_ids  # observability, written by every node
 ```
 
 **State transitions:**
@@ -326,13 +326,13 @@ All inter-agent communication is mediated through a versioned Pydantic ResearchS
 ```python
 class ResearchState(BaseModel):
     # Identity
-    run_id: str                            # UUID4, immutable after creation
-    org_id: str                            # Tenant identifier
+    run_id: str  # UUID4, immutable after creation
+    org_id: str  # Tenant identifier
     schema_version: str = "1.0"
 
     # Brief
-    brief: ResearchBrief                   # Submitted query + config
-    task_plan: List[AgentTask]             # Decomposed subtasks
+    brief: ResearchBrief  # Submitted query + config
+    task_plan: List[AgentTask]  # Decomposed subtasks
 
     # Agent outputs (write-once per agent)
     web_results: List[WebSource] = []
@@ -349,7 +349,7 @@ class ResearchState(BaseModel):
     revision_count: int = 0
 
     # Observability
-    trace_ids: Dict[str, str] = {}         # agent_name -> langsmith trace_id
+    trace_ids: Dict[str, str] = {}  # agent_name -> langsmith trace_id
     mlflow_run_id: Optional[str] = None
     created_at: datetime
     updated_at: datetime
