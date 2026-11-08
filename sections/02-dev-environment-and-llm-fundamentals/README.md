@@ -30,6 +30,8 @@ Full lecture details and reading lists: [`docs/curriculum.md`](../../docs/curric
 ├── demo_2_2_env_check.py                # 2.2 — required API keys present in .env (never prints values)
 ├── demo_2_3_first_llm_call.py           # 2.3 — one Gemini call: tokens, context window, cost
 ├── demo_2_4_prompt_engineering.py       # 2.4 — baseline vs system role vs few-shot vs chain-of-thought
+├── demo_2_5_structured_outputs.py       # 2.5 — Pydantic schema + with_structured_output, typed fields + cost
+├── demo_2_6_self_correcting_outputs.py  # 2.6 — re-ask the model with its own validation error, max 3 attempts
 ├── demo_2_7_streaming_responses.py      # 2.7 — .stream(), SSE framing, merging chunks for usage
 └── exercise-2E-research-summariser/     # Exercise 2.E (per-exercise pilot pattern)
     ├── README.md                        # objective, acceptance criteria, lecture links
@@ -52,7 +54,8 @@ Last checked 2026-11-08 by running each script against the free-tier stack.
 | `demo_2_2_env_check.py` | ✅ Runs; correctly fails and names any missing keys |
 | `demo_2_3_first_llm_call.py` | ✅ Runs. Known issue: with `langchain-google-genai` 4.x the response logs as a list of content blocks (`[{'type': 'text', ...}]`) rather than plain text. Kept as recorded; 2.7 uses `.text` instead. |
 | `demo_2_4_prompt_engineering.py` | ✅ Runs all four prompt variants |
-| 2.5 / 2.6 demos | ❌ Not in the repo yet (`demo_2_5_structured_outputs.py`, `demo_2_6_self_correcting_outputs.py`) |
+| `demo_2_5_structured_outputs.py` | ✅ Runs. Differs from the recorded video: it raises `response["parsing_error"]` and catches `OutputParserException`, because `with_structured_output(include_raw=True)` returns validation failures instead of raising them; and it uses `gemini-3.1-flash-lite` (`gemini-2.5-flash` is no longer available to new accounts). |
+| `demo_2_6_self_correcting_outputs.py` | ✅ Runs. Same two differences as 2.5. Live runs usually pass on attempt 1 because Gemini enforces the schema; the retry path is verified offline with a fake model (bad answer → re-ask with the Pydantic error → pass). |
 | `demo_2_7_streaming_responses.py` | ✅ Runs; ruff + `mypy --strict` clean |
 | 2.8 demo | ❌ Not written yet |
 
