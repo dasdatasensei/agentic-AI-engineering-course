@@ -21,10 +21,10 @@ and valid. The contract for this exercise is:
 
 ```python
 class ResearchSummary(BaseModel):
-    topic: str            # the main subject
-    summary: str          # a 2-3 sentence abstract
-    key_points: list[str] # the 3-5 most important takeaways (validated)
-    entities: list[str]   # orgs / people / technologies named (may be empty)
+    topic: str  # the main subject
+    summary: str  # a 2-3 sentence abstract
+    key_points: list[str]  # the 3-5 most important takeaways (validated)
+    entities: list[str]  # orgs / people / technologies named (may be empty)
 ```
 
 The `key_points` bound (3–5 items) is deliberate: an LLM will occasionally
