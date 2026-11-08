@@ -33,6 +33,7 @@ Full lecture details and reading lists: [`docs/curriculum.md`](../../docs/curric
 ├── demo_2_5_structured_outputs.py       # 2.5 — Pydantic schema + with_structured_output, typed fields + cost
 ├── demo_2_6_self_correcting_outputs.py  # 2.6 — re-ask the model with its own validation error, max 3 attempts
 ├── demo_2_7_streaming_responses.py      # 2.7 — .stream(), SSE framing, merging chunks for usage
+├── demo_2_8_multi_provider_switching.py # 2.8 — same streaming code on Gemini or Groq, picked by CLI argument
 └── exercise-2E-research-summariser/     # Exercise 2.E (per-exercise pilot pattern)
     ├── README.md                        # objective, acceptance criteria, lecture links
     ├── starter/summariser.py            # stubbed TODOs — the learner edits this
@@ -57,9 +58,10 @@ Last checked 2026-11-08 by running each script against the free-tier stack.
 | `demo_2_5_structured_outputs.py` | ✅ Runs. Differs from the recorded video: it raises `response["parsing_error"]` and catches `OutputParserException`, because `with_structured_output(include_raw=True)` returns validation failures instead of raising them; and it uses `gemini-3.1-flash-lite` (`gemini-2.5-flash` is no longer available to new accounts). |
 | `demo_2_6_self_correcting_outputs.py` | ✅ Runs. Same two differences as 2.5. Live runs usually pass on attempt 1 because Gemini enforces the schema; the retry path is verified offline with a fake model (bad answer → re-ask with the Pydantic error → pass). |
 | `demo_2_7_streaming_responses.py` | ✅ Runs; ruff + `mypy --strict` clean |
-| 2.8 demo | ❌ Not written yet |
+| `demo_2_8_multi_provider_switching.py` | ⚠️ Google path runs (`python demo_2_8_multi_provider_switching.py google`). Groq path not yet run against the live API — no `GROQ_API_KEY` was available; verified only with a fake model. Without the key it exits cleanly with an error naming the missing key. |
+| Exercise 2.E tests | ✅ `pytest tests/unit/test_research_summariser.py` passes against the reference. Learners add `--impl=starter` to test their own `starter/summariser.py` (fails until the TODOs are done, as intended). |
 
-All demos read `GOOGLE_API_KEY` from `.env`; 2.2 also needs `GROQ_API_KEY`, `TAVILY_API_KEY` and `LANGSMITH_API_KEY`.
+All demos read `GOOGLE_API_KEY` from `.env`; 2.2 and the Groq path of 2.8 also need `GROQ_API_KEY`, `TAVILY_API_KEY` and `LANGSMITH_API_KEY`.
 
 ## Setup checklist
 
