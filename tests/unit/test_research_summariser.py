@@ -8,15 +8,32 @@ behaviour per test) and demonstrate the 2.6 self-correction loop end to end.
 
 import json
 from collections.abc import Mapping
+from typing import TYPE_CHECKING
 
 import pytest
 from pydantic import ValidationError
 
-from era_platform.generation.summarizer import (
-    ResearchSummary,
-    SummarizationError,
-    SummarizerAgent,
-)
+from tests.exercise_impl import load_exercise_module
+
+if TYPE_CHECKING:
+    # Type-check against the reference; at runtime the --impl option decides.
+    from era_platform.generation.summarizer import (
+        ResearchSummary,
+        SummarizationError,
+        SummarizerAgent,
+    )
+else:
+    # Default: the era_platform reference (what CI checks).
+    # Learners: `pytest tests/unit/test_research_summariser.py --impl=starter`
+    # runs these same tests against exercise-2E-research-summariser/starter/summariser.py.
+    _impl = load_exercise_module(
+        reference="era_platform.generation.summarizer",
+        starter_path="sections/02-dev-environment-and-llm-fundamentals/"
+        "exercise-2E-research-summariser/starter/summariser.py",
+    )
+    ResearchSummary = _impl.ResearchSummary
+    SummarizationError = _impl.SummarizationError
+    SummarizerAgent = _impl.SummarizerAgent
 
 _VALID_PAYLOAD = {
     "topic": "Caribbean fintech",
